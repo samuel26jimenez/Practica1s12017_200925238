@@ -31,13 +31,22 @@ public class Jugador_Circular {
   }
   
   public void Recorre_Ju_Circular(){
-      Nodo_Us tem = i;
+      Nodo_Us tem = i;      
       while(tem != f){
           System.out.println("Jugador: " + tem.Obtener());
           tem = tem.sig;
       }
       System.out.println("Jugador Final: " + tem.Obtener());
       
+  }
+  
+  public void Us_repetido(Nodo_Us nuevo_Ju){
+      Nodo_Us tempo2;
+      tempo2 = i;
+      while(tempo2.id.toString() == nuevo_Ju.id.toString()){
+          System.out.println("Nombre Repetido");
+          Inserta_jugador(nuevo_Ju);
+      }
   }
   
   Boolean Vacio_Circular(){
