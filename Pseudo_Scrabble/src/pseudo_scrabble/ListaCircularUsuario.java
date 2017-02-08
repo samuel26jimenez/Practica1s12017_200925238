@@ -8,13 +8,21 @@
  *
  * @author Samuel
  */
-public class Pseudo_Scrabble {
+
+//public class Pseudo_Scrabble {
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
     
+    
+   // public static void main(String[] args) {
+        // TODO code application logic here
+   /* }
+    
+}*/
+
+public class ListaCircularUsuario{
+    Nodo_Users i;
+    Nodo_Users f;
 }
