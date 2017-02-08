@@ -3,24 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package pseudo_scrabble;
 
 /**
  *
  * @author Samuel
  */
-public class Nodo_Users {
+public class Nodo_Us {
     String id;
-    Nodo_Users sig;
-    
-    public Nodo_Users(String idt){
+    Nodo_Us sig;
+
+    public Nodo_Us(String idt){
         this.id = idt;
+        }
+
+    public void Establecer(String idt){
+        this.id= idt;
     }
-    
-    public void set_Users(String idt){
-        this.id = idt;
-    }
-    
-    public String get_Users(){
+
+    public String Obtener(){
         return id;
-    } 
+    }  
 }
+
+
