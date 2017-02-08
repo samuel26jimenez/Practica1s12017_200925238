@@ -23,6 +23,7 @@ public class Jugador_Circular {
    if(Vacio_Circular()){
        i = f = nuevo_Ju;
         }else{
+       Ju_repetido(nuevo_Ju);
        f.sig = nuevo_Ju;
        nuevo_Ju.sig = i;
        //f = f.sig;
@@ -36,11 +37,10 @@ public class Jugador_Circular {
           System.out.println("Jugador: " + tem.Obtener());
           tem = tem.sig;
       }
-      System.out.println("Jugador Final: " + tem.Obtener());
-      
+      System.out.println("Jugador Final: " + tem.Obtener());      
   }
   
-  public void Us_repetido(Nodo_Us nuevo_Ju){
+  public void Ju_repetido(Nodo_Us nuevo_Ju){
       Nodo_Us tempo2;
       tempo2 = i;
       while(tempo2.id.toString() == nuevo_Ju.id.toString()){
