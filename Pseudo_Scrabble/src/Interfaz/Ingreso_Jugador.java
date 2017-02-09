@@ -5,6 +5,9 @@
  */
 package Interfaz;
 
+import pseudo_scrabble.Jugador_Circular;
+import pseudo_scrabble.Nodo_Us;
+
 /**
  *
  * @author Samuel
@@ -14,6 +17,9 @@ public class Ingreso_Jugador extends javax.swing.JFrame {
     /**
      * Creates new form Ingreso_Jugador
      */
+    
+    Jugador_Circular jc = new Jugador_Circular();
+    Nodo_Us nodoUs;
     public Ingreso_Jugador() {
         initComponents();
     }
@@ -43,6 +49,11 @@ public class Ingreso_Jugador extends javax.swing.JFrame {
         jLabel3.setText("AÑADIR");
 
         jButton1.setText("Agregar Jugador");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jTextField1.setText("jTextField1");
 
@@ -95,6 +106,17 @@ public class Ingreso_Jugador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        nodoUs = new Nodo_Us(this.jTextField1.getText());
+        if(jc.Inserta_jugador(nodoUs) == 0){
+            jLabel4.setText("Nombre Repetido " +  this.jTextField1.getText());            
+        }else{
+            System.out.println("Agredado Correctamente " + this.jTextField1.getText());
+        }
+        jTextField1.setText("");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -135,7 +157,7 @@ public class Ingreso_Jugador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    public javax.swing.JLabel jLabel4;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

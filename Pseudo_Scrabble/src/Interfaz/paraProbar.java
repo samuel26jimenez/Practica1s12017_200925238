@@ -5,26 +5,28 @@
  */
 package Interfaz;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFileChooser;
-import javax.swing.filechooser.FileNameExtensionFilter;
+import Diccionario_Simple.Dic_Simple;
+import Diccionario_Simple.Nodo_Dic;
+import pseudo_scrabble.Jugador_Circular;
+import pseudo_scrabble.Nodo_Us;
 
 /**
  *
  * @author Samuel
  */
-public class Carga_Masiva extends javax.swing.JFrame {    
+public class paraProbar extends javax.swing.JFrame {
+
     /**
-     * Creates new form Carga_Masiva
+     * Creates new form paraProbar
      */
-    paraProbar pp = new paraProbar();
-    public Carga_Masiva() {
-        
+    /*
+    Dic_Simple ds = new Dic_Simple();
+    Nodo_Dic nodo;
+    */
+    
+    Jugador_Circular jc = new Jugador_Circular();
+    Nodo_Us nodoUs;
+    public paraProbar() {
         initComponents();
     }
 
@@ -38,28 +40,19 @@ public class Carga_Masiva extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jEditorPane1 = new javax.swing.JEditorPane();
         jButton2 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Cargar Archivo .xml");
+        jButton1.setText("agregar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jScrollPane2.setViewportView(jEditorPane1);
-
-        jTabbedPane1.addTab("tab1", jScrollPane2);
-
-        jScrollPane1.setViewportView(jTabbedPane1);
-
-        jButton2.setText("jButton2");
+        jButton2.setText("imprimir");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -71,26 +64,26 @@ public class Carga_Masiva extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2)
-                        .addGap(0, 407, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addGap(67, 67, 67)
+                .addComponent(jButton1)
+                .addGap(91, 91, 91)
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(85, Short.MAX_VALUE)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(111, 111, 111))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(4, 4, 4)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(86, 86, 86))
         );
 
         pack();
@@ -98,36 +91,16 @@ public class Carga_Masiva extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        JFileChooser fc = new JFileChooser();
-        fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivo Extension (*.xml)", "*.XML", "*xml", "XML");
-        fc.setFileFilter(filtro);
-        int selec_Us = fc.showOpenDialog(this);
-        if(selec_Us == JFileChooser.APPROVE_OPTION){
-            //arch = fc.getSelectedFile();
-            try{
-                //jEditorPane1.setText(null);
-                BufferedReader br;
-                File file = fc.getSelectedFile();
-                br = new BufferedReader(new FileReader(file.getAbsolutePath()));
-                
-                String linea, contenido = "";
-                while((linea = br.readLine()) != null){
-                    contenido += linea  + "\n";
-                }
-                this.jEditorPane1.setText(contenido);
-                br.close();
-            }
-            catch(IOException ex)
-            {
-                Logger.getLogger(Carga_Masiva.class.getName()).log(Level.SEVERE, null, ex);
-            }            
-        }       
+        /*nodo = new Nodo_Dic(this.jTextField1.getText());
+        ds.insertar_Dic_Pal(nodo);*/
+        nodoUs = new Nodo_Us(this.jTextField1.getText());
+        jc.Inserta_jugador(nodoUs);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        pp.setVisible(true);
+        //ds.recorre();
+        jc.Recorre_Ju_Circular();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -147,20 +120,20 @@ public class Carga_Masiva extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Carga_Masiva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(paraProbar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Carga_Masiva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(paraProbar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Carga_Masiva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(paraProbar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Carga_Masiva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(paraProbar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Carga_Masiva().setVisible(true);
+                new paraProbar().setVisible(true);
             }
         });
     }
@@ -168,9 +141,6 @@ public class Carga_Masiva extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JEditorPane jEditorPane1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
