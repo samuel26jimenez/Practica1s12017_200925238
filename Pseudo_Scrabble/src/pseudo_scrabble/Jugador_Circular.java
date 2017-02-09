@@ -59,13 +59,7 @@ public class Jugador_Circular {
         if (temp.id.toString().equals(nuevo_Ju.id.toString())) {
             return false;
         }
-        return true;
-        /*Nodo_Us tempo2;
-         tempo2 = i;
-         while(tempo2.id.toString().equals(nuevo_Ju.id.toString())){
-         System.out.println("Nombre Repetido");
-         Inserta_jugador(nuevo_Ju);
-         }*/
+        return true;        
     }
 
     Boolean Vacio_Circular() {
@@ -75,5 +69,4 @@ public class Jugador_Circular {
             return false;
         }
     }
-
 }
