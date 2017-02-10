@@ -10,13 +10,13 @@ package Fichas_Jugador;
  * @author Samuel
  */
 public class Nodo_Num_Fichas {
-    char num_ficha;
-    Nodo_Num_Fichas sig;
+    public char num_ficha;
+    public Nodo_Num_Fichas sig;
     
     public Nodo_Num_Fichas(char ficha){
         this.num_ficha = ficha;
     }
-    
+    /*
     public void setFicha(char ficha){
         this.num_ficha = ficha;
     }
@@ -24,4 +24,23 @@ public class Nodo_Num_Fichas {
     public char getFicha(){
         return num_ficha;
     }
+    */
+
+    public char getNum_ficha() {
+        return num_ficha;
+    }
+
+    public void setNum_ficha(char num_ficha) {
+        this.num_ficha = num_ficha;
+    }
+
+    public Nodo_Num_Fichas getSig() {
+        return sig;
+    }
+
+    public void setSig(Nodo_Num_Fichas sig) {
+        this.sig = sig;
+    }
+    
+    
 }

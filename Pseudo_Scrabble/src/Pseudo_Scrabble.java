@@ -19,9 +19,11 @@ public class Pseudo_Scrabble {
      */
     
     
+    public static Menu_Principal gui = new Menu_Principal();
+    
     public static void main(String[] args) {
         // TODO code application logic here
-        Menu_Principal gui = new Menu_Principal();
+        
         gui.setVisible(true);
     }    
 }

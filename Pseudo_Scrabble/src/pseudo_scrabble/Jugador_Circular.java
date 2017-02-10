@@ -48,7 +48,7 @@ public class Jugador_Circular {
         System.out.println("Jugador Final: " + tem.Obtener());
     }
 
-    public Boolean Ju_repetido(Nodo_Us nuevo_Ju) {
+    public Boolean Ju_repetido(Nodo_Us nuevo_Ju){
         Nodo_Us temp = i;
         while (temp != f) {
             if (temp.id.toString().equals(nuevo_Ju.id.toString())) {

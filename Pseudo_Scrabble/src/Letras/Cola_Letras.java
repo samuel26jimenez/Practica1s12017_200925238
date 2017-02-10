@@ -37,17 +37,27 @@ public class Cola_Letras {
         }
     }
 
-    public void eliminar_cola() {
-        if ((in != fn) && (in.sig != null)) {
+    public char obtener_char() {
+        //if ((in != fn) && (in.sig != null)) {
+        if(in == null){
+            return 0;
+        }
+        if ((in.sig != null)) {
             Nodo_Cola_Letras temp;
             temp = in;
             in = in.sig;
-            temp.sig = null;
+            char c = temp.get_letter();
+            temp.sig = null;          
             temp = null;
-
+            System.out.println(c);
+            return c;
         } else {
+            char c = in.get_letter();
             in = fn = null;
+            System.out.println(c);
+            return c;
         }
+        
     }
     
     public void recorre_Cola(){

@@ -112,6 +112,7 @@ public class Ingreso_Jugador extends javax.swing.JFrame {
         if(jc.Inserta_jugador(nodoUs) == 0){
             jLabel4.setText("Nombre Repetido " +  this.jTextField1.getText());            
         }else{
+            jLabel4.setText("Usuario Ingresado " + this.jTextField1.getText());
             System.out.println("Agredado Correctamente " + this.jTextField1.getText());
         }
         jTextField1.setText("");
