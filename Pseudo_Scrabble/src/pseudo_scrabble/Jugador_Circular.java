@@ -22,8 +22,7 @@ public class Jugador_Circular {
         if (Vacio_Circular()) {
             i = f = nuevo_Ju;
             return 1;
-        } else {
-            
+        } else {            
             if (Ju_repetido(nuevo_Ju)) {
                 f.sig = nuevo_Ju;
                 nuevo_Ju.sig = i;

@@ -10,7 +10,9 @@ package Fichas_Jugador;
  * @author Samuel
  */
 public class Nodo_Num_Fichas {
+    
     public char num_ficha;
+    
     public Nodo_Num_Fichas sig;
     
     public Nodo_Num_Fichas(char ficha){
@@ -40,7 +42,5 @@ public class Nodo_Num_Fichas {
 
     public void setSig(Nodo_Num_Fichas sig) {
         this.sig = sig;
-    }
-    
-    
+    }    
 }

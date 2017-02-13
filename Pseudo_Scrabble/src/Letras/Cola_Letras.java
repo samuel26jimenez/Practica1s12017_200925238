@@ -56,8 +56,7 @@ public class Cola_Letras {
             in = fn = null;
             System.out.println(c);
             return c;
-        }
-        
+        }       
     }
     
     public void recorre_Cola(){
