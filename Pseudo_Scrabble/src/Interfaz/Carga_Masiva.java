@@ -7,6 +7,7 @@ package Interfaz;
 
 import Letras.Cola_Letras;
 import Matriz_Ortogonal.Ortogonal;
+import Varios.Direccion;
 import Varios.Enlaces;
 import Varios.LecturaXml;
 import java.io.BufferedReader;
@@ -29,6 +30,7 @@ public class Carga_Masiva extends javax.swing.JFrame {
      */
     public Ortogonal mini_Orto;
     public Cola_Letras llamar = new Cola_Letras();
+    public Tablero tablero = new Tablero();
     
     paraProbar pp = new paraProbar();
     public Carga_Masiva() {
@@ -144,8 +146,23 @@ public class Carga_Masiva extends javax.swing.JFrame {
             }            
         }
         
+        /*
+        *El metodo 
+        *
+        */
         Enlaces enlace = new Enlaces();
         enlace.Carga_Palabras(new LecturaXml().Lectura_Palabras(file.toString()));
+        tablero.dimension = new LecturaXml().Dimension(file.toString());
+        
+        Direccion[] dir = new LecturaXml().Lectura_Dobles(file.toString());
+        Direccion[] direccion = new LecturaXml().Lectura_Tres(file.toString());
+        
+        for (Direccion dir1 : dir) {
+            tablero.matriz.Recorre_Ortogonal(dir1.getX(), dir1.getY(), 1, 2);
+        }
+        for(Direccion dir2 : direccion){
+            tablero.matriz.Recorre_Ortogonal(dir2.getX(), dir2.getY(), 1, 3);
+        }
         System.out.println("========\tLista Palabras de Diccionario\t===========");
         Lista_Diccionario.recorre();
     }//GEN-LAST:event_jButton1ActionPerformed

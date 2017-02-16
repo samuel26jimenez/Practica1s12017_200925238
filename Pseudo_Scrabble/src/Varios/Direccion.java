@@ -11,11 +11,19 @@ package Varios;
  * @author Samuel
  */
 public class Direccion {
-    public String X;
-    public String Y;
+    public int X;
+    public int Y;
     
-    public Direccion(String x, String y){
+    public Direccion(int x, int y){
         this.X = x;
         this.Y = y;
+    }
+    
+    public int getX(){
+        return X;
+    }
+    
+    public int getY(){
+        return Y;
     }
 }

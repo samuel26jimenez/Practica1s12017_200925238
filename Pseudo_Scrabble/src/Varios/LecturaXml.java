@@ -40,7 +40,7 @@ public class LecturaXml {
             //Se obtiene la lista de hijos de la raiz 'tables'
             List list = rootNode.getChildren("diccionario");
 
-            //Se recorre la lista de hijos de 'tables'
+            //Se recorre la lista de hijos de 'tables'         
             for (int i = 0; i < list.size(); i++) {
                 //Se obtiene el elemento 'tabla'
                 Element tabla = (Element) list.get(i);
@@ -109,8 +109,8 @@ public class LecturaXml {
                 //Se recorre la lista de campos
                 for (int j = 0; j < lista_campos.size(); j++) {
                     Element campo = (Element) lista_campos.get(j);
-                    String x = campo.getChildTextTrim("x");
-                    String y = campo.getChildTextTrim("y");
+                    int x = Integer.parseInt(campo.getChildTextTrim("x"));
+                    int y = Integer.parseInt(campo.getChildTextTrim("y"));
                     
                     Nodo_Direccion[j]= new Direccion(x, y);
                     System.out.println("\t" + x + "\t\t" + y);
@@ -123,7 +123,105 @@ public class LecturaXml {
         }
         return Nodo_Direccion;
     }
-
     
+    
+    
+    public Direccion[] Lectura_Tres(String path) {
+        //Se crea un SAXBuilder para poder parsear el archivo
+        SAXBuilder builder = new SAXBuilder();
+        //File xmlFile = new File("C:\\Users\\Samuel\\Desktop\\arch_entrada.xml");
+        File xmlFile = new File(path);
+        
+        Direccion[] Nodo_Direccion = null;
+        try {
+            //Se crea el documento a traves del archivo
+            Document document = (Document) builder.build(xmlFile);
+
+            //Se obtiene la raiz 'tables'
+            Element rootNode = document.getRootElement();
+
+            //Se obtiene la lista de hijos de la raiz 'tables'
+            List list = rootNode.getChildren("triples");
+
+            //Se recorre la lista de hijos de 'tables'
+            for (int i = 0; i < list.size(); i++) {
+                //Se obtiene el elemento 'tabla'
+                Element tabla = (Element) list.get(i);
+
+                //Se obtiene el atributo 'nombre' que esta en el tag 'tabla'
+                String nombreTabla = tabla.getAttributeValue("casilla");
+
+                System.out.println("Tabla: " + nombreTabla);
+
+                //Se obtiene la lista de hijos del tag 'tabla'
+                List lista_campos = tabla.getChildren();
+
+                System.out.println("\tX\t\tY");
+
+                Nodo_Direccion = new Direccion[lista_campos.size()];
+                //Se recorre la lista de campos
+                for (int j = 0; j < lista_campos.size(); j++) {
+                    Element campo = (Element) lista_campos.get(j);
+                    int x = Integer.parseInt(campo.getChildTextTrim("x"));
+                    int y = Integer.parseInt(campo.getChildTextTrim("y"));
+                    
+                    Nodo_Direccion[j]= new Direccion(x, y);
+                    System.out.println("\t" + x + "\t\t" + y);
+                }
+            }
+        } catch (IOException io) {
+            System.out.println(io.getMessage());
+        } catch (JDOMException jdomex) {
+            System.out.println(jdomex.getMessage());
+        }
+        return Nodo_Direccion;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+    public int Dimension(String path) {
+        //Se crea un SAXBuilder para poder parsear el archivo
+        SAXBuilder builder = new SAXBuilder();
+        //File xmlFile = new File("C:\\Users\\Samuel\\Desktop\\arch_entrada.xml");
+        File xmlFile = new File(path);
+        int dimension=0;
+        
+        //Dimension[] Nodo_Dimension = null;
+        try {
+            //Se crea el documento a traves del archivo
+            Document document = (Document) builder.build(xmlFile);
+
+            //Se obtiene la raiz 'tables'
+            Element rootNode = document.getRootElement();
+
+            //Se obtiene la lista de hijos de la raiz 'tables'
+            List list = rootNode.getChildren("scrabble");
+            
+            Element dim = (Element) list;
+            
+            dimension = Integer.parseInt(dim.getAttributeValue("dimension"));
+
+            
+        } catch (IOException io) {
+            System.out.println(io.getMessage());
+        } catch (JDOMException jdomex) {
+            System.out.println(jdomex.getMessage());
+        }
+        return dimension;
+        
+    }
     
 }
