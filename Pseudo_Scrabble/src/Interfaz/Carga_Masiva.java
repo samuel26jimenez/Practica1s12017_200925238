@@ -6,6 +6,9 @@
 package Interfaz;
 
 import Letras.Cola_Letras;
+import Matriz_Ortogonal.Ortogonal;
+import Varios.Enlaces;
+import Varios.LecturaXml;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -14,6 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import static Varios.Pseudo_Scrabble.Lista_Diccionario;
 
 /**
  *
@@ -23,6 +27,7 @@ public class Carga_Masiva extends javax.swing.JFrame {
     /**
      * Creates new form Carga_Masiva
      */
+    public Ortogonal mini_Orto;
     public Cola_Letras llamar = new Cola_Letras();
     
     paraProbar pp = new paraProbar();
@@ -117,12 +122,13 @@ public class Carga_Masiva extends javax.swing.JFrame {
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivo Extension (*.xml)", "*.XML", "*xml", "XML");
         fc.setFileFilter(filtro);
         int selec_Us = fc.showOpenDialog(this);
+        File file = null;
         if(selec_Us == JFileChooser.APPROVE_OPTION){
             //arch = fc.getSelectedFile();
             try{
                 //jEditorPane1.setText(null);
                 BufferedReader br;
-                File file = fc.getSelectedFile();
+                file = fc.getSelectedFile();
                 br = new BufferedReader(new FileReader(file.getAbsolutePath()));
                 
                 String linea, contenido = "";
@@ -136,7 +142,12 @@ public class Carga_Masiva extends javax.swing.JFrame {
             {
                 Logger.getLogger(Carga_Masiva.class.getName()).log(Level.SEVERE, null, ex);
             }            
-        }       
+        }
+        
+        Enlaces enlace = new Enlaces();
+        enlace.Carga_Palabras(new LecturaXml().Lectura_Palabras(file.toString()));
+        System.out.println("========\tLista Palabras de Diccionario\t===========");
+        Lista_Diccionario.recorre();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
