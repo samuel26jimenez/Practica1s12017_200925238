@@ -160,9 +160,7 @@ public class Menu_Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        
-        
+        // TODO add your handling code here:        
         nume.Eliminar_ficha_usu(this.jTextField1.getText().toString().charAt(0));
         while(nume.contar <= 7) {
             char c = cl.obtener_char();
