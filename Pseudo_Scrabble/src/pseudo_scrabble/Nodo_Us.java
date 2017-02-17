@@ -12,9 +12,9 @@ import Fichas_Jugador.Num_Fichas_Simple;
  * @author Samuel
  */
 public class Nodo_Us {
-    String id;
-    Nodo_Us sig;
-    Num_Fichas_Simple lista;
+    public String id;
+    public Nodo_Us sig;
+    public Num_Fichas_Simple lista;
 
     public Nodo_Us(String idt){
         this.id = idt;

@@ -116,6 +116,7 @@ public class Ingreso_Jugador extends javax.swing.JFrame {
             System.out.println("Agredado Correctamente " + this.jTextField1.getText());
         }
         jTextField1.setText("");
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
