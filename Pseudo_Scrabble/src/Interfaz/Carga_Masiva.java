@@ -164,7 +164,9 @@ public class Carga_Masiva extends javax.swing.JFrame {
             tablero.matriz.Recorre_Ortogonal(dir2.getX(), dir2.getY(), 1, 3);
         }
         System.out.println("========\tLista Palabras de Diccionario\t===========");
+        tablero.crear_matriz();
         Lista_Diccionario.recorre();
+        Lista_Diccionario.GraficoDic_Simple();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

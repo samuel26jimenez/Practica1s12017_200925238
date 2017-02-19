@@ -57,6 +57,7 @@ public class Matriz {
         Ortogonal baja2;
 
         in1 = in2 = i;
+        
         while (in1.der != null) {
             in2 = in1;
             in1 = in1.der;

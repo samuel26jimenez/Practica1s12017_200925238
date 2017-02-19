@@ -115,6 +115,7 @@ public class Ingreso_Jugador extends javax.swing.JFrame {
             jLabel4.setText("Usuario Ingresado " + this.jTextField1.getText());
             System.out.println("Agredado Correctamente " + this.jTextField1.getText());
         }
+       
         jTextField1.setText("");
         
     }//GEN-LAST:event_jButton1ActionPerformed

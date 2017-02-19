@@ -21,7 +21,7 @@ public class Tablero extends javax.swing.JFrame {
      */
     public Tablero() {
         initComponents();
-        crear_matriz();
+        
     }
 
     /**

@@ -41,14 +41,14 @@ public class LecturaXml {
             List list = rootNode.getChildren("diccionario");
 
             //Se recorre la lista de hijos de 'tables'         
-            for (int i = 0; i < list.size(); i++) {
+            //for (int i = 0; i < list.size(); i++) {
                 //Se obtiene el elemento 'tabla'
-                Element tabla = (Element) list.get(i);
+                Element tabla = (Element) list.get(0);
 
                 //Se obtiene el atributo 'nombre' que esta en el tag 'tabla'
-                String nombreTabla = tabla.getAttributeValue("palabra");
+                //String nombreTabla = tabla.getAttributeValue("palabra");
 
-                System.out.println("Tabla: " + nombreTabla);
+                //System.out.println("Tabla: " + nombreTabla);
 
                 //Se obtiene la lista de hijos del tag 'tabla'
                 List lista_campos = tabla.getChildren();
@@ -63,7 +63,7 @@ public class LecturaXml {
                     System.out.println("\t" + nombre + "\t\t");
                     
                     Lista_Dato[j] = nombre;
-                }
+                //}
             }
         } catch (IOException io) {
             System.out.println(io.getMessage());
@@ -208,11 +208,11 @@ public class LecturaXml {
             Element rootNode = document.getRootElement();
 
             //Se obtiene la lista de hijos de la raiz 'tables'
-            List list = rootNode.getChildren("scrabble");
+            //List list = rootNode.getAttribute("dimension");
             
-            Element dim = (Element) list;
+            //Element dim = (Element) list.get(0);
             
-            dimension = Integer.parseInt(dim.getAttributeValue("dimension"));
+            dimension = Integer.parseInt(rootNode.getChildText("dimension"));
 
             
         } catch (IOException io) {
