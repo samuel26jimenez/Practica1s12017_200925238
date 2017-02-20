@@ -81,8 +81,7 @@ public class Cola_Letras {
     StringBuffer concat;
 
     public void Grafico_Ficha_Pend() {
-        try {
-            //CAMBIAR DE NOMBRE DEL ARCHIVO PARA CADA GRAFICO
+        try {            
             String pInput = System.getProperty("user.home") + File.separator + "Desktop" + File.separator + "fichas_pend.txt";
             String pOutput = System.getProperty("user.home") + File.separator + "Desktop" + File.separator + "fichas_pend.jpg";
 
