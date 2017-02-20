@@ -292,6 +292,7 @@ public class Tablero extends javax.swing.JFrame {
             }
         }
         matriz.apuntador_Hor();
+        matriz.Grafico_Matriz();
     }
     
     /**

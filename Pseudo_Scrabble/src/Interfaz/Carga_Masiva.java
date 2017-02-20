@@ -19,6 +19,7 @@ import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import static Varios.Pseudo_Scrabble.Lista_Diccionario;
+import static Varios.Pseudo_Scrabble.Matriz_Tablero;
 
 /**
  *
@@ -167,6 +168,7 @@ public class Carga_Masiva extends javax.swing.JFrame {
         tablero.crear_matriz();
         Lista_Diccionario.recorre();
         Lista_Diccionario.GraficoDic_Simple();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
