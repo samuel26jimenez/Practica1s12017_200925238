@@ -102,6 +102,7 @@ public class Cola_Letras {
                 num2++;//201314038@ingenieria.usac.edu.gt
             }
 
+            
             concat.append("}");
             escribir_archivo(pInput, concat.toString());
 
