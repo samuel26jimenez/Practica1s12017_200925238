@@ -3,6 +3,7 @@ package Varios;
 
 import Diccionario_Simple.Dic_Simple;
 import Interfaz.Menu_Principal;
+import Interfaz.Tablero;
 import Letras.Cola_Letras;
 import Matriz_Ortogonal.Matriz;
 import pseudo_scrabble.Jugador_Circular;
@@ -33,6 +34,7 @@ public class Pseudo_Scrabble {
     public static Dic_Simple Lista_Diccionario; 
     public static Matriz Matriz_Tablero;
     
+    
     public static void main(String[] args) {
         // TODO code application logic here
         
@@ -47,6 +49,7 @@ public class Pseudo_Scrabble {
         Lista_Jugador = new Jugador_Circular();
         Lista_Diccionario = new Dic_Simple();
         Matriz_Tablero =  new Matriz();
+     
         
     }
 }

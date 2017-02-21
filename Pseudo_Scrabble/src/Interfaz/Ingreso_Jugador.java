@@ -8,7 +8,8 @@ package Interfaz;
 import pseudo_scrabble.Jugador_Circular;
 import pseudo_scrabble.Nodo_Us;
 import static Varios.Pseudo_Scrabble.Lista_Jugador;
-
+import Interfaz.Carga_Masiva.*;
+import static Interfaz.Carga_Masiva.tablero;
 /**
  *
  * @author Samuel
@@ -156,8 +157,11 @@ public class Ingreso_Jugador extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        Tablero tab = new Tablero();
+         tablero.setVisible(true);       
+         /*
+        Tablero tab = new Tablero();                
                tab.setVisible(true);
+       */
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

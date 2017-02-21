@@ -25,21 +25,26 @@ public class Dic_Simple {
        //fi = null;
    }
    
-   public void insertar_Dic_Pal(Nodo_Dic x){
+   public int insertar_Dic_Pal(Nodo_Dic x){
        if(vacio_Simple()){
            in = x;
-           in.sig1 = null;
+           in.sig1 = null;           
+           return 1;
        }else{
            Nodo_Dic temp;
            temp = in;
            while(temp.sig1 != null){
                temp = temp.sig1;
-           }
-           
+           }           
            temp.sig1 = x;
            temp = temp.sig1;
-           temp.sig1 = null;
+           temp.sig1 = null;  
+           return 1;
        }
+       /*
+       System.out.println("Palabra_Repetida");
+       return 0;
+       */     
    }
    
    public void recorre(){

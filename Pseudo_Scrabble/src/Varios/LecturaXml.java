@@ -177,21 +177,6 @@ public class LecturaXml {
         return Nodo_Direccion;
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   
     public int Dimension(String path) {
         //Se crea un SAXBuilder para poder parsear el archivo
         SAXBuilder builder = new SAXBuilder();

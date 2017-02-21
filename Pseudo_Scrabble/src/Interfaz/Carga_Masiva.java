@@ -31,7 +31,7 @@ public class Carga_Masiva extends javax.swing.JFrame {
      */
     public Ortogonal mini_Orto;
     public Cola_Letras llamar = new Cola_Letras();
-    public Tablero tablero = new Tablero();
+    static public Tablero tablero = new Tablero();
     
     paraProbar pp = new paraProbar();
     public Carga_Masiva() {
@@ -166,7 +166,7 @@ public class Carga_Masiva extends javax.swing.JFrame {
         }
         System.out.println("========\tLista Palabras de Diccionario\t===========");
         tablero.crear_matriz();
-        tablero.setVisible(true);
+        //tablero.setVisible(true);
         tablero.tablero_xy();
         
         Lista_Diccionario.recorre();
@@ -184,6 +184,7 @@ public class Carga_Masiva extends javax.swing.JFrame {
         // TODO add your handling code here:
         Menu_Principal mp = new Menu_Principal();
         mp.setVisible(true);
+       
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
