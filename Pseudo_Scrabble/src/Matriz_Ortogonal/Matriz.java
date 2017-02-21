@@ -45,7 +45,7 @@ public class Matriz {
             if (nvo_Ndo.y == 0) {
                 tempo = i;
                 tempo3 = i;
-                while (tempo != null) {
+                while ( tempo != null ) {
                     tempo3 = tempo;
                     tempo = tempo.der;
                 }
