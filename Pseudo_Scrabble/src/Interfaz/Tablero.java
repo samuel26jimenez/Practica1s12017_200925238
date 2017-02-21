@@ -6,6 +6,7 @@
 package Interfaz;
 
 import Diccionario_Simple.Nodo_Dic;
+import Letras.Nodo_Cola_Letras;
 import Matriz_Ortogonal.Matriz;
 import Matriz_Ortogonal.Ortogonal;
 import Varios.Pseudo_Scrabble;
@@ -14,8 +15,12 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import static Varios.Pseudo_Scrabble.Lista_Diccionario;
+import static Varios.Pseudo_Scrabble.Lista_Jugador;
+import static Varios.Pseudo_Scrabble.Lista_Cola_Letras;
+import static Varios.Pseudo_Scrabble.Lista_Letras;
 import com.sun.prism.Graphics;
 import java.awt.Image;
+import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -27,43 +32,35 @@ public class Tablero extends javax.swing.JFrame {
 
     public int dimension;
     Matriz matriz = new Matriz();
-    
+
     JButton boton[][];
-    JLabel etiq_xy [][];
-    
-    
+    JLabel etiq_xy[][];
+
     /**
      * Creates new form Tablero
      */
     public Tablero() {
         initComponents();
-        
+
     }
-    
-    public void tablero_xy(){        
+
+    public void tablero_xy() {
         boton = new JButton[dimension][dimension];
         etiq_xy = new JLabel[dimension][dimension];
         this.jInternalFrame1.setLayout(new GridLayout(dimension, dimension));
-        for (int i = 0; i < dimension; i++) { 
+        for (int i = 0; i < dimension; i++) {
             for (int j = 0; j < dimension; j++) {
                 boton[i][j] = new JButton();
                 etiq_xy[i][j] = new JLabel();
                 etiq_xy[i][j].setBounds(50 * i, 50 * j, 50, 50); //columnas fila ancho alto
                 etiq_xy[i][j].setName("etiqueta," + i + "," + j);
-                if (i % 2 == 0 && j % 2 == 0) 
-                {
+                if (i % 2 == 0 && j % 2 == 0) {
                     boton[i][j].setBackground(new java.awt.Color(255, 255, 255));
-                } 
-                else if (i % 2 == 0 && j % 2 == 1) 
-                {
+                } else if (i % 2 == 0 && j % 2 == 1) {
                     boton[i][j].setBackground(new java.awt.Color(112, 170, 107));
-                } 
-                else if (i % 2 == 1 && j % 2 == 0) 
-                {
+                } else if (i % 2 == 1 && j % 2 == 0) {
                     boton[i][j].setBackground(new java.awt.Color(112, 170, 107));
-                } 
-                else if (i % 2 == 1 && j % 2 == 1) 
-                {
+                } else if (i % 2 == 1 && j % 2 == 1) {
                     boton[i][j].setBackground(new java.awt.Color(255, 255, 255));
                 }
 
@@ -71,9 +68,9 @@ public class Tablero extends javax.swing.JFrame {
                 this.jInternalFrame1.add(boton[i][j]);
                 //this.jInternalFrame1.setVisible(true);
             }
-        }        
+        }
     }
-  
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -217,11 +214,11 @@ public class Tablero extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(label_para_images, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE)
+            .addComponent(label_para_images, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(label_para_images, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE)
+            .addComponent(label_para_images, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
         );
 
         jTabbedPane2.addTab("Lista_Jugador", jPanel2);
@@ -230,11 +227,11 @@ public class Tablero extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 355, Short.MAX_VALUE)
+            .addGap(0, 448, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 557, Short.MAX_VALUE)
+            .addGap(0, 575, Short.MAX_VALUE)
         );
 
         jTabbedPane2.addTab("Lista_Diccionario", jPanel4);
@@ -243,11 +240,11 @@ public class Tablero extends javax.swing.JFrame {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 355, Short.MAX_VALUE)
+            .addGap(0, 448, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 557, Short.MAX_VALUE)
+            .addGap(0, 575, Short.MAX_VALUE)
         );
 
         jTabbedPane2.addTab("Matriz_Tablero", jPanel5);
@@ -256,11 +253,11 @@ public class Tablero extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 355, Short.MAX_VALUE)
+            .addGap(0, 448, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 557, Short.MAX_VALUE)
+            .addGap(0, 575, Short.MAX_VALUE)
         );
 
         jTabbedPane2.addTab("Cola_Fichas", jPanel6);
@@ -269,11 +266,11 @@ public class Tablero extends javax.swing.JFrame {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 355, Short.MAX_VALUE)
+            .addGap(0, 448, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 557, Short.MAX_VALUE)
+            .addGap(0, 575, Short.MAX_VALUE)
         );
 
         jTabbedPane2.addTab("Lista_de_Fichas_Activas", jPanel7);
@@ -315,35 +312,28 @@ public class Tablero extends javax.swing.JFrame {
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel6)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jCheckBox1)
-                            .addGap(18, 18, 18)
-                            .addComponent(jCheckBox2))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jCheckBox3)
-                            .addGap(18, 18, 18)
-                            .addComponent(jCheckBox4))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jCheckBox5)
-                            .addGap(18, 18, 18)
-                            .addComponent(jCheckBox6))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jCheckBox7)
-                            .addGap(18, 18, 18)
-                            .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jLabel5)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton11))
+                    .addComponent(jLabel6)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addGap(10, 10, 10)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel4))
+                    .addComponent(jLabel5)
+                    .addComponent(jCheckBox7)
+                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jButton11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jCheckBox1)
+                    .addComponent(jCheckBox2)
+                    .addComponent(jCheckBox3)
+                    .addComponent(jCheckBox4)
+                    .addComponent(jCheckBox5)
+                    .addComponent(jCheckBox6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -351,44 +341,52 @@ public class Tablero extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jTabbedPane2)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
                                 .addComponent(jLabel2)
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel4)
-                                .addGap(26, 26, 26)
-                                .addComponent(jLabel3)
-                                .addGap(17, 17, 17)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel3))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel4)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton11)
-                                .addGap(33, 33, 33)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jCheckBox1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jCheckBox1)
-                                    .addComponent(jCheckBox2))
+                                .addComponent(jCheckBox2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jCheckBox3)
-                                    .addComponent(jCheckBox4))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(jCheckBox3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCheckBox4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jCheckBox5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCheckBox6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCheckBox7)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(21, 21, 21)
+                                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(16, 16, 16)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -399,16 +397,8 @@ public class Tablero extends javax.swing.JFrame {
                                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jCheckBox5)
-                                        .addComponent(jCheckBox6))
-                                    .addComponent(jLabel1))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jCheckBox7)
-                                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(14, 14, 14)))))
+                                .addComponent(jLabel1)
+                                .addGap(84, 84, 84)))))
                 .addGap(19, 19, 19))
         );
 
@@ -434,9 +424,9 @@ public class Tablero extends javax.swing.JFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
-        if(Lista_Diccionario.insertar_Dic_Pal(new Nodo_Dic(this.jTextField1.getText())) == 0){
+        if (Lista_Diccionario.insertar_Dic_Pal(new Nodo_Dic(this.jTextField1.getText())) == 0) {
             JOptionPane.showMessageDialog(null, "Palabra Repetida");
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Agregada al Diccionario");
         }
         jTextField1.setText(" ");
@@ -444,39 +434,55 @@ public class Tablero extends javax.swing.JFrame {
         Lista_Diccionario.GraficoDic_Simple();
     }//GEN-LAST:event_jButton11ActionPerformed
 
-    public void crear_matriz(){
-        for(int i=0; i<dimension; i++){
-            for(int j = 0; j<dimension; j++){
-                matriz.insertar(new Ortogonal(i,j));
+    public void crear_matriz() {
+        for (int i = 0; i < dimension; i++) {
+            for (int j = 0; j < dimension; j++) {
+                matriz.insertar(new Ortogonal(i, j));
             }
         }
         matriz.apuntador_Hor();
         matriz.Grafico_Matriz();
     }
-    
-    public void llamar(){
-        imagen(jPanel2, "C:\\Users\\Samuel\\Desktop\\jug_Circular.jpg");
-        imagen(jPanel4, "C:\\Users\\Samuel\\Desktop\\Dic_Simple.jpg.jpg");
-        imagen(jPanel5, "C:\\Users\\Samuel\\Desktop\\Matriz_Orto.jpg");
-        setVisible(true);
+
+    public void llamar() {
+        ImageIcon jc = new ImageIcon(System.getProperty("user.home") + File.separator + "Desktop" + File.separator + "jug_Circular.jpg");
+        ImageIcon jugador_circ = new ImageIcon(jc.getImage().getScaledInstance(jPanel2.getWidth(), (jPanel2.getHeight() - 500), Image.SCALE_DEFAULT));
+        imagen(this.jPanel2, jugador_circ);
+
+        ImageIcon ds = new ImageIcon(System.getProperty("user.home") + File.separator + "Desktop" + File.separator + "Dic_Simple.jpg");
+        ImageIcon diccionario_sim = new ImageIcon(ds.getImage().getScaledInstance(jPanel4.getWidth(), (jPanel4.getHeight() - 500), Image.SCALE_DEFAULT));
+        imagen(this.jPanel4, diccionario_sim);
+
+        ImageIcon mtz_Orto = new ImageIcon(System.getProperty("user.home") + File.separator + "Desktop" + File.separator + "Matriz_Orto.jpg");
+        ImageIcon Matriz_Orto = new ImageIcon(mtz_Orto.getImage().getScaledInstance(jPanel5.getWidth(), jPanel5.getHeight(), Image.SCALE_DEFAULT));
+        imagen(this.jPanel5, Matriz_Orto);
+
     }
-    
-    
-    public void imagen(JPanel jpanelC, String path){        
+
+    public void Llenar_Cola() {
+        while (Lista_Letras.t_lista() != 0) {
+            int pos = (int) (Math.random() * (Lista_Letras.t_lista()-1));
+            Lista_Cola_Letras.insertar_cola(new Nodo_Cola_Letras(Lista_Letras.get_char_nodo(pos)));
+        }
+        //
+    }
+
+    public void imagen(JPanel jpanelC, ImageIcon IMG2) {
        //path = "C:\\Users\\Samuel\\Desktop\\jug_Circular.jpg";
-       ImageIcon Img = new ImageIcon(getClass().getResource(path));
-       ImageIcon IMG2 = new ImageIcon(Img.getImage().getScaledInstance(jpanelC.getWidth(), (jpanelC.getHeight() - 500), Image.SCALE_DEFAULT));
-       //jpanelC.drawImage(Img.getImage(),0,0); 
-       JLabel jlabel = new JLabel();
-                        //(x,y,width,height)
-       jlabel.setBounds(0,0,jpanelC.getWidth(),jpanelC.getHeight());
-       jlabel.setIcon(IMG2);
-       jpanelC.add(jlabel);
+        //label_para_images       
+        //label_para_images.setBounds(0,0,jpanelC.getWidth(),jpanelC.getHeight());
+        //label_para_images.setIcon(IMG2);
+       /*jpanelC.add(label_para_images);
+         jpanelC.setVisible(true);*/
+
+        JLabel jlabel = new JLabel();
+        jlabel.setBounds(0, 0, jpanelC.getWidth(), jpanelC.getHeight());
+        jlabel.setIcon(IMG2);
+//     
+        jpanelC.add(jlabel);
+        jlabel.setVisible(true);
     }
-    
-    
-    
-    
+
     /**
      * @param args the command line arguments
      */
@@ -508,7 +514,7 @@ public class Tablero extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Tablero().setVisible(true);
-                
+
             }
         });
     }

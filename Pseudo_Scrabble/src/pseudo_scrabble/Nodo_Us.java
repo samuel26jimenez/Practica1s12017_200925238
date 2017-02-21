@@ -19,7 +19,15 @@ public class Nodo_Us {
     public Nodo_Us(String idt){
         this.id = idt;
         this.lista = new Num_Fichas_Simple();
+        this.lista.Reajustar_Fichas_lista();
+        //llenar_lista();
         }
+    
+    /*public void llenar_lista(){
+        for(int a=0; a<7; a++){
+            lista.Insertar(Lista_Cola_Letras.obtener_char());
+        }
+    }*/
 
     public void Establecer(String idt){
         this.id= idt;

@@ -6,6 +6,7 @@ import Interfaz.Menu_Principal;
 import Interfaz.Tablero;
 import Letras.Cola_Letras;
 import Matriz_Ortogonal.Matriz;
+import lista_letras_default.lista_letras;
 import pseudo_scrabble.Jugador_Circular;
 
 /*
@@ -32,7 +33,8 @@ public class Pseudo_Scrabble {
     public static Cola_Letras Lista_Cola_Letras;
     public static Jugador_Circular Lista_Jugador;
     public static Dic_Simple Lista_Diccionario; 
-    public static Matriz Matriz_Tablero;
+    public static Matriz Matriz_Tablero; 
+    public static lista_letras Lista_Letras;
     
     
     public static void main(String[] args) {
@@ -49,7 +51,7 @@ public class Pseudo_Scrabble {
         Lista_Jugador = new Jugador_Circular();
         Lista_Diccionario = new Dic_Simple();
         Matriz_Tablero =  new Matriz();
-     
+        Lista_Letras = new lista_letras();
         
     }
 }

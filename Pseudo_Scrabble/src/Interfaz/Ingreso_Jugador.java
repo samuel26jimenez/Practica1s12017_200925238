@@ -157,7 +157,8 @@ public class Ingreso_Jugador extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-         tablero.setVisible(true);       
+         tablero.setVisible(true);  
+         tablero.llamar();
          /*
         Tablero tab = new Tablero();                
                tab.setVisible(true);

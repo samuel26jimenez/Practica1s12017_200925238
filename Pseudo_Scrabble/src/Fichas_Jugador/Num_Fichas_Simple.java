@@ -5,7 +5,7 @@
  */
 package Fichas_Jugador;
 import  Pseudo_Scrabble.*;
-import Letras.Cola_Letras;
+import static Varios.Pseudo_Scrabble.Lista_Cola_Letras;
 import Letras.Nodo_Cola_Letras;
 /**
  *
@@ -17,7 +17,7 @@ public class Num_Fichas_Simple {
     
     public int contar = 0;
     
-    public Cola_Letras letter;
+    //public Cola_Letras letter;
     Nodo_Num_Fichas lis;
     
     public void Insertar(char c){       
@@ -89,9 +89,9 @@ public class Num_Fichas_Simple {
     }
     
     public void Reajustar_Fichas_lista(){
-        if( !letter.vacio_Cola() && Contador_Fichas() < 7){
+        if( !Lista_Cola_Letras.vacio_Cola() && Contador_Fichas() < 7){
             for(int i = Contador_Fichas(); i <= 7; i++ ){
-                 char c = letter.obtener_char();
+                 char c = Lista_Cola_Letras.obtener_char();
              lis = new Nodo_Num_Fichas(c);
                 if (esVacio()) {
                     in = fi = lis;
