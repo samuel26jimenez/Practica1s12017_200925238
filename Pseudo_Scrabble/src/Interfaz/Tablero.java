@@ -7,6 +7,10 @@ package Interfaz;
 
 import Matriz_Ortogonal.Matriz;
 import Matriz_Ortogonal.Ortogonal;
+import java.awt.GridLayout;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -16,6 +20,11 @@ public class Tablero extends javax.swing.JFrame {
 
     public int dimension;
     Matriz matriz = new Matriz();
+    
+    JButton boton[][];
+    JLabel etiq_xy [][];
+    
+    
     /**
      * Creates new form Tablero
      */
@@ -23,6 +32,45 @@ public class Tablero extends javax.swing.JFrame {
         initComponents();
         
     }
+    
+    public void tablero_xy(){        
+        boton = new JButton[dimension][dimension];
+        etiq_xy = new JLabel[dimension][dimension];
+        this.jInternalFrame1.setLayout(new GridLayout(dimension, dimension));
+        for (int i = 0; i < dimension; i++) { 
+            for (int j = 0; j < dimension; j++) {
+                boton[i][j] = new JButton();
+                etiq_xy[i][j] = new JLabel();
+                etiq_xy[i][j].setBounds(50 * i, 50 * j, 50, 50);
+                etiq_xy[i][j].setName("etiqueta," + i + "," + j);
+                if (i % 2 == 0 && j % 2 == 0) 
+                {
+                    boton[i][j].setBackground(new java.awt.Color(255, 255, 255));
+                } 
+                else if (i % 2 == 0 && j % 2 == 1) 
+                {
+                    boton[i][j].setBackground(new java.awt.Color(112, 170, 107));
+                } 
+                else if (i % 2 == 1 && j % 2 == 0) 
+                {
+                    boton[i][j].setBackground(new java.awt.Color(112, 170, 107));
+                } 
+                else if (i % 2 == 1 && j % 2 == 1) 
+                {
+                    boton[i][j].setBackground(new java.awt.Color(255, 255, 255));
+                }
+
+                boton[i][j].add(etiq_xy[i][j]);
+                this.jInternalFrame1.add(boton[i][j]);
+                //this.jInternalFrame1.setVisible(true);
+            }
+        }        
+    }
+    
+    
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -65,6 +113,7 @@ public class Tablero extends javax.swing.JFrame {
         jCheckBox6 = new javax.swing.JCheckBox();
         jCheckBox7 = new javax.swing.JCheckBox();
         jPanel3 = new javax.swing.JPanel();
+        jInternalFrame1 = new javax.swing.JInternalFrame();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,7 +149,7 @@ public class Tablero extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 522, Short.MAX_VALUE)
+            .addGap(0, 549, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("tab1", jPanel2);
@@ -137,15 +186,32 @@ public class Tablero extends javax.swing.JFrame {
 
         jCheckBox7.setText("jCheckBox7");
 
+        jInternalFrame1.setVisible(true);
+
+        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
+        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
+        jInternalFrame1Layout.setHorizontalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 624, Short.MAX_VALUE)
+        );
+        jInternalFrame1Layout.setVerticalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 453, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 613, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -213,7 +279,6 @@ public class Tablero extends javax.swing.JFrame {
                             .addComponent(jLabel3))
                         .addGap(0, 38, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel4)
                         .addGap(70, 70, 70)))
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -372,6 +437,7 @@ public class Tablero extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox5;
     private javax.swing.JCheckBox jCheckBox6;
     private javax.swing.JCheckBox jCheckBox7;
+    private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -166,8 +166,12 @@ public class Carga_Masiva extends javax.swing.JFrame {
         }
         System.out.println("========\tLista Palabras de Diccionario\t===========");
         tablero.crear_matriz();
+        tablero.setVisible(true);
+        tablero.tablero_xy();
+        
         Lista_Diccionario.recorre();
         Lista_Diccionario.GraficoDic_Simple();
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
