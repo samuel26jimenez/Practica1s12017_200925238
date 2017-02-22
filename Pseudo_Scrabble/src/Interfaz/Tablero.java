@@ -136,6 +136,11 @@ public class Tablero extends javax.swing.JFrame {
         jButton2.setText("Cancelar Tiro");
 
         jButton3.setText("jButton3");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("jButton4");
 
@@ -440,8 +445,15 @@ public class Tablero extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         usuario_actual = usuario_actual.sig;
+        usuario_actual.lista.GraficoDic_Simple();
+        actualiza_grafica_fichas();
+        
         actualiza_letras();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     public void crear_matriz() {
         for (int i = 0; i < dimension; i++) {
@@ -452,7 +464,15 @@ public class Tablero extends javax.swing.JFrame {
         matriz.apuntador_Hor();
         matriz.Grafico_Matriz();
     }
-     
+       
+    public void actualiza_grafica_fichas(){
+        
+        ImageIcon fa = new ImageIcon(System.getProperty("user.home") + File.separator + "Desktop" + File.separator + "Fichas_Actual.jpg");
+        ImageIcon fichas_Activas = new ImageIcon(fa.getImage().getScaledInstance(jPanel7.getWidth(), (jPanel7.getHeight()-500), Image.SCALE_DEFAULT));
+        imagen(jPanel7, fichas_Activas);
+        
+    }
+    
     public void actualiza_letras(){
         Nodo_Num_Fichas tempo;
         tempo = usuario_actual.lista.in;
@@ -509,6 +529,10 @@ public class Tablero extends javax.swing.JFrame {
         ImageIcon mtz_Orto = new ImageIcon(System.getProperty("user.home") + File.separator + "Desktop" + File.separator + "Matriz_Orto.jpg");
         ImageIcon Matriz_Orto = new ImageIcon(mtz_Orto.getImage().getScaledInstance(jPanel5.getWidth(), jPanel5.getHeight(), Image.SCALE_DEFAULT));
         imagen(this.jPanel5, Matriz_Orto);
+        
+        ImageIcon fa = new ImageIcon(System.getProperty("user.home") + File.separator + "Desktop" + File.separator + "fichas_pend.jpg");
+        ImageIcon fichas_Activas = new ImageIcon(fa.getImage().getScaledInstance(jPanel6.getWidth(), jPanel6.getHeight()-500, Image.SCALE_DEFAULT));
+        imagen(this.jPanel6, fichas_Activas);
 
     }
 
@@ -530,7 +554,6 @@ public class Tablero extends javax.swing.JFrame {
         //label_para_images.setIcon(IMG2);
        /*jpanelC.add(label_para_images);
          jpanelC.setVisible(true);*/
-
         JLabel jlabel = new JLabel();
         jlabel.setBounds(0, 0, jpanelC.getWidth(), jpanelC.getHeight());
         jlabel.setIcon(IMG2);

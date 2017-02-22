@@ -8,6 +8,7 @@ package Interfaz;
 import pseudo_scrabble.Nodo_Us;
 import static Varios.Pseudo_Scrabble.Lista_Jugador;
 import Interfaz.Carga_Masiva.*;
+import static Varios.Pseudo_Scrabble.Lista_Cola_Letras;
 import static Interfaz.Carga_Masiva.tablero;
 /**
  *
@@ -159,8 +160,12 @@ public class Ingreso_Jugador extends javax.swing.JFrame {
         tablero.usuario_actual = Lista_Jugador.i;
         
         tablero.actualiza_letras();
-         tablero.setVisible(true);  
+        
+        tablero.usuario_actual.lista.GraficoDic_Simple();
+        tablero.actualiza_grafica_fichas();
+        Lista_Cola_Letras.Grafico_Ficha_Pend();
          tablero.llamar();
+         tablero.setVisible(true);  
          /*
         Tablero tab = new Tablero();                
                tab.setVisible(true);
