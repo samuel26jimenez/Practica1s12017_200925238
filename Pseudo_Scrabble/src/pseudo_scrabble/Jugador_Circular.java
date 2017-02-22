@@ -20,8 +20,8 @@ import java.util.logging.Logger;
  */
 public class Jugador_Circular {
 
-    Nodo_Us i;
-    Nodo_Us f;
+    public Nodo_Us i;
+    public Nodo_Us f;
 
     public Jugador_Circular() {
         i=f=null;

@@ -10,14 +10,20 @@ package lista_letras_default;
  * @author Samuel
  */
 public class nodo_letras {
+    int puntos;
     char letra;
     nodo_letras sig;
     
-    public nodo_letras(char letra){
+    public nodo_letras(int puntos, char letra){
+        this.puntos = puntos;
         this.letra = letra;
     }
     
     public char getLetra(){
         return letra;
+    }
+    
+    public int get_puntos(){
+        return puntos;
     }
 }

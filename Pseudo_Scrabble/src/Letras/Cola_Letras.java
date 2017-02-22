@@ -20,8 +20,8 @@ import java.util.logging.Logger;
  */
 public class Cola_Letras {
 
-    Nodo_Cola_Letras in;
-    Nodo_Cola_Letras fn;
+    public Nodo_Cola_Letras in;
+    public Nodo_Cola_Letras fn;
 
     public Cola_Letras() {
         

@@ -18,8 +18,8 @@ public class Nodo_Us {
 
     public Nodo_Us(String idt){
         this.id = idt;
-        this.lista = new Num_Fichas_Simple();
-        this.lista.Reajustar_Fichas_lista();
+        lista = new Num_Fichas_Simple();
+        lista.Reajustar_Fichas_lista();
         //llenar_lista();
         }
     

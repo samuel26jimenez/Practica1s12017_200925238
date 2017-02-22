@@ -10,10 +10,12 @@ package Letras;
  * @author Samuel
  */
 public class Nodo_Cola_Letras {
+    int puntos;
     char letter;
     Nodo_Cola_Letras sig;
     
-    public Nodo_Cola_Letras(char letter){
+    public Nodo_Cola_Letras(int puntos, char letter){
+        this.puntos = puntos;
         this.letter = letter;
     }
     
@@ -23,5 +25,9 @@ public class Nodo_Cola_Letras {
     
     public char get_letter(){
         return letter;
+    }
+    
+    public int get_puntos(){
+        return puntos;
     }
 }

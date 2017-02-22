@@ -9,6 +9,7 @@ import Fichas_Jugador.Nodo_Num_Fichas;
 import Fichas_Jugador.Num_Fichas_Simple;
 import Letras.Cola_Letras;
 import Letras.Nodo_Cola_Letras;
+import static Interfaz.Carga_Masiva.tablero;
 import com.sun.org.apache.xalan.internal.xsltc.compiler.Constants;
 
 /**
@@ -140,60 +141,61 @@ public class Menu_Principal extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
+        tablero.Llenar_Cola();
         ij.setVisible(true);
+       
     }//GEN-LAST:event_jButton2ActionPerformed
-    Cola_Letras cl = new Cola_Letras();
-    Num_Fichas_Simple nume= new Num_Fichas_Simple();
+    //Cola_Letras cl = new Cola_Letras();
+    //Num_Fichas_Simple nume= new Num_Fichas_Simple();
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         
-        String msm = "abcdefghijklmnopqrstuv";
+        /*String msm = "Abcdefghijklmnopqrstuv";
         for(int i = 0; i < 20 ; i++){
             cl.insertar_cola(new Nodo_Cola_Letras(msm.charAt(i)));
-        }
+        }*/
         
         this.jTextField1.setText("");
-        cl.recorre_Cola();
+        //cl.recorre_Cola();
         System.out.println("================================================");
-        nume.Recorre_simple_lista();
+        //nume.Recorre_simple_lista();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:        
-        nume.Eliminar_ficha_usu(this.jTextField1.getText().toString().charAt(0));
-        while(nume.contar <= 7) {
+        //nume.Eliminar_ficha_usu(this.jTextField1.getText().toString().charAt(0));
+        /*while(nume.contar <= 7) {
             char c = cl.obtener_char();
             if(c == 0){
                 break;
             }
-            nume.Insertar(c);
+            //nume.Insertar(c);
         }
         
         System.out.println("================ Fichas Restantes ==========================");
         cl.recorre_Cola();
         System.out.println("=================Fichas Usuario =================");
         nume.Recorre_simple_lista();
-        System.out.println("================================================");
+        System.out.println("================================================");*/
         
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         
-        while(nume.contar < 7) {
+        /*while(nume.contar < 7) {
             char c = cl.obtener_char();
             if(c == 0){
                 break;
             }
-            nume.Insertar(c);
+            //nume.Insertar(c);
         }
         
         System.out.println("================ Fichas Restantes ==========================");
         cl.recorre_Cola();
         System.out.println("=================Fichas Usuario =================");
         nume.Recorre_simple_lista();
-        System.out.println("================================================");
+        System.out.println("================================================");*/
         
     }//GEN-LAST:event_jButton5ActionPerformed
 

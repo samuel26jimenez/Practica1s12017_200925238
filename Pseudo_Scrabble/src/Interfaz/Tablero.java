@@ -6,6 +6,7 @@
 package Interfaz;
 
 import Diccionario_Simple.Nodo_Dic;
+import Fichas_Jugador.Nodo_Num_Fichas;
 import Letras.Nodo_Cola_Letras;
 import Matriz_Ortogonal.Matriz;
 import Matriz_Ortogonal.Ortogonal;
@@ -23,6 +24,7 @@ import java.awt.Image;
 import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import pseudo_scrabble.Nodo_Us;
 
 /**
  *
@@ -32,6 +34,7 @@ public class Tablero extends javax.swing.JFrame {
 
     public int dimension;
     Matriz matriz = new Matriz();
+    Nodo_Us usuario_actual;
 
     JButton boton[][];
     JLabel etiq_xy[][];
@@ -124,6 +127,11 @@ public class Tablero extends javax.swing.JFrame {
         jLabel1.setText("ACTIVAS LETRAS");
 
         jButton1.setText("Validar Tiro");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cancelar Tiro");
 
@@ -430,6 +438,11 @@ public class Tablero extends javax.swing.JFrame {
         Lista_Diccionario.GraficoDic_Simple();
     }//GEN-LAST:event_jButton11ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        usuario_actual = usuario_actual.sig;
+        actualiza_letras();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public void crear_matriz() {
         for (int i = 0; i < dimension; i++) {
             for (int j = 0; j < dimension; j++) {
@@ -440,7 +453,49 @@ public class Tablero extends javax.swing.JFrame {
         matriz.Grafico_Matriz();
     }
      
-    
+    public void actualiza_letras(){
+        Nodo_Num_Fichas tempo;
+        tempo = usuario_actual.lista.in;
+        usuario_actual.lista.Recorre_simple_lista();
+        int pos=0;
+        while(tempo != null){
+            switch(pos){
+                case 0:
+                    jButton3.setText(""+tempo.getNum_ficha());
+                    jCheckBox1.setText(""+tempo.getNum_ficha());
+                    System.out.println("USUARIO EN JUEGO: "+usuario_actual.id);
+                    break;
+                case 1:
+                    jButton4.setText(""+tempo.getNum_ficha());
+                    jCheckBox2.setText(""+tempo.getNum_ficha());
+                    break;
+                case 2:
+                    jButton5.setText(""+tempo.getNum_ficha());
+                    jCheckBox3.setText(""+tempo.getNum_ficha());
+                    break;
+                case 3:
+                    jButton6.setText(""+tempo.getNum_ficha());
+                    jCheckBox4.setText(""+tempo.getNum_ficha());
+                    break;
+                case 4:
+                    jButton7.setText(""+tempo.getNum_ficha());
+                    jCheckBox5.setText(""+tempo.getNum_ficha());
+                    break;
+                case 5:
+                    jButton8.setText(""+tempo.getNum_ficha());
+                    jCheckBox6.setText(""+tempo.getNum_ficha());
+                    break;
+                case 6:
+                    jButton9.setText(""+tempo.getNum_ficha());
+                    jCheckBox7.setText(""+tempo.getNum_ficha());
+                    break;
+                default:
+                    break;
+            }
+            tempo = tempo.sig;
+            pos++;
+        }
+    }
 
     public void llamar() {
         ImageIcon jc = new ImageIcon(System.getProperty("user.home") + File.separator + "Desktop" + File.separator + "jug_Circular.jpg");
@@ -460,8 +515,11 @@ public class Tablero extends javax.swing.JFrame {
     public void Llenar_Cola() {
         while (Lista_Letras.t_lista() != 0) {
             int pos = (int) (Math.random() * (Lista_Letras.t_lista()-1));
-            Lista_Cola_Letras.insertar_cola(new Nodo_Cola_Letras(Lista_Letras.get_char_nodo(pos)));
+            System.out.println(Lista_Letras.t_lista()+" ***");
+            String a[] = Lista_Letras.get_char_nodo(pos).split(",");
+            Lista_Cola_Letras.insertar_cola(new Nodo_Cola_Letras(Integer.parseInt(a[1]),a[0].charAt(0)));
         }
+        //Lista_Cola_Letras.recorre_Cola();
         //
     }
 

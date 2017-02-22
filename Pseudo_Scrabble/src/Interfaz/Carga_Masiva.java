@@ -10,6 +10,7 @@ import Matriz_Ortogonal.Ortogonal;
 import Varios.Direccion;
 import Varios.Enlaces;
 import Varios.LecturaXml;
+import Varios.Llenar_Lista_Letras_Default;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -32,6 +33,7 @@ public class Carga_Masiva extends javax.swing.JFrame {
     public Ortogonal mini_Orto;
     public Cola_Letras llamar = new Cola_Letras();
     static public Tablero tablero = new Tablero();
+    Llenar_Lista_Letras_Default llenaDef = new Llenar_Lista_Letras_Default();
     
     paraProbar pp = new paraProbar();
     public Carga_Masiva() {
@@ -171,7 +173,7 @@ public class Carga_Masiva extends javax.swing.JFrame {
         
         Lista_Diccionario.recorre();
         Lista_Diccionario.GraficoDic_Simple();
-        
+        llenaDef.llenar_lista();
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
