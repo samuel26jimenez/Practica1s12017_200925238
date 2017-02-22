@@ -6,10 +6,7 @@
 package Fichas_Jugador;
 
 import Diccionario_Simple.Dic_Simple;
-import Diccionario_Simple.Nodo_Dic;
-import Pseudo_Scrabble.*;
 import static Varios.Pseudo_Scrabble.Lista_Cola_Letras;
-import Letras.Nodo_Cola_Letras;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
